@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="EduMath.UserControls.UserControlTheoryListing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EduMath.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="660.8">
+    <Grid>
+        <ListBox x:Name="ListBoxTheoryListing" Background="LightGray" BorderBrush="Transparent" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" FontSize="20" SelectionChanged="ListBoxTheoryListing_SelectionChanged">
+            <ListBoxItem x:Name="ListBoxItemTheory1" Content="Pojęcia podstawowe"/>
+            <ListBoxItem x:Name="ListBoxItemTheory2" Content="Liczby rzeczywiste"/>
+            <ListBoxItem x:Name="ListBoxItemTheory3" Content="Wyrażenia algebraiczne, równania i nierówności"/>
+            <ListBoxItem x:Name="ListBoxItemTheory4" Content="Funkcje"/>
+            <ListBoxItem x:Name="ListBoxItemTheory5" Content="Funkcje liniowe"/>
+            <ListBoxItem x:Name="ListBoxItemTheory6" Content="Funkcje kwadratowe"/>
+            <ListBoxItem x:Name="ListBoxItemTheory7" Content="Funkcje wymierne"/>
+            <ListBoxItem x:Name="ListBoxItemTheory8" Content="Funkcje wykładnicze"/>
+            <ListBoxItem x:Name="ListBoxItemTheory9" Content="Funkcje logarytmiczne"/>
+            <ListBoxItem x:Name="ListBoxItemTheory10" Content="Wielomiany"/>
+            <ListBoxItem x:Name="ListBoxItemTheory11" Content="Ciągi"/>
+            <ListBoxItem x:Name="ListBoxItemTheory12" Content="Geometria płaska"/>
+            <ListBoxItem x:Name="ListBoxItemTheory13" Content="Trygonometria"/>
+            <ListBoxItem x:Name="ListBoxItemTheory14" Content="Analiza matematyczna"/>
+            <ListBoxItem x:Name="ListBoxItemTheory15" Content="Geometria przestrzenna"/>
+            <ListBoxItem x:Name="ListBoxItemTheory16" Content="Rachunek różniczkowy"/>
+            <ListBoxItem x:Name="ListBoxItemTheory17" Content="Optymalizacja"/>
+            <ListBoxItem x:Name="ListBoxItemTheory18" Content="Rachunek prawdopodobieństwa i statystyka"/>
+        </ListBox>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="EduMath.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EduMath"
+        xmlns:usercontrols="clr-namespace:EduMath.UserControls"
+        mc:Ignorable="d"
+        Title="EduMath" Height="450" Width="800">
+    <Grid Background="LightGray" MinHeight="200">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="120"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" x:Name="ButtonTheory" Content="Teoria" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTheory_Click" FontSize="25"/>
+        <Button Grid.Column="0" Grid.Row="1" x:Name="ButtonExamples" Content="Przykłady" Background="#FFFFC72E" BorderBrush="Transparent" FontSize="25" Click="ButtonExamples_Click"/>
+        <Button Grid.Column="0" Grid.Row="2" x:Name="ButtonTasks" Content="Zadania" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTasks_Click" FontSize="25"/>
+        <Button Grid.Column="0" Grid.Row="3" x:Name="ButtonTests" Content="Testy" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTests_Click" FontSize="25"/>
+        <Button Grid.Column="0" Grid.Row="4" x:Name="ButtonProgres" Content="Progres" Background="#FFFFC72E" BorderBrush="Transparent" FontSize="25" Click="ButtonProgres_Click"/>
+
+        <ContentControl x:Name="ContentControl" x:FieldModifier="public" Content="{Binding}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+    </Grid>
+</Window>
