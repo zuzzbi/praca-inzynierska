@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,62 +21,81 @@ namespace EduMath
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        SolidColorBrush buttonNotClicked = new SolidColorBrush(Color.FromRgb(255, 199, 46));
-        SolidColorBrush buttonClicked = new SolidColorBrush(Color.FromRgb(255, 160, 0));
-
         private void ButtonTheory_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Button item in Grid.Children.OfType<Button>())
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    Button button = (Button)item;
+                    button.IsEnabled = true;
+                }  
+            }
+            ButtonTheory.IsEnabled = false;
             ContentControl.Content = new UserControls.UserControlTheoryListing();
-            ButtonTheory.Background = buttonClicked;
-            ButtonExamples.Background = buttonNotClicked;
-            ButtonTasks.Background = buttonNotClicked;
-            ButtonTests.Background = buttonNotClicked;
-            ButtonProgres.Background = buttonNotClicked;
         }
 
         private void ButtonExamples_Click(object sender, RoutedEventArgs e)
         {
-            ContentControl.Content = new UserControls.UserControlExamplesListing();
-            ButtonTheory.Background = buttonNotClicked;
-            ButtonExamples.Background = buttonClicked;
-            ButtonTasks.Background = buttonNotClicked;
-            ButtonTests.Background = buttonNotClicked;
-            ButtonProgres.Background = buttonNotClicked;
+            foreach (Button item in Grid.Children.OfType<Button>())
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    Button button = (Button)item;
+                    button.IsEnabled = true;
+                }
+            }
+            ButtonExamples.IsEnabled = false;
+            ContentControl.Content = new UserControls.UserControlTheoryListing();
         }
 
         private void ButtonTasks_Click(object sender, RoutedEventArgs e)
         {
-            ContentControl.Content = new UserControls.UserControlTasksListing();
-            ButtonTheory.Background = buttonNotClicked;
-            ButtonExamples.Background = buttonNotClicked;
-            ButtonTasks.Background = buttonClicked;
-            ButtonTests.Background = buttonNotClicked;
-            ButtonProgres.Background = buttonNotClicked;
+            foreach (Button item in Grid.Children.OfType<Button>())
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    Button button = (Button)item;
+                    button.IsEnabled = true;
+                }
+            }
+            ButtonTasks.IsEnabled = false;
+            ContentControl.Content = new UserControls.UserControlTheoryListing();
         }
 
         private void ButtonTests_Click(object sender, RoutedEventArgs e)
         {
-            ContentControl.Content = new UserControls.UserControlTestsListing();
-            ButtonTheory.Background = buttonNotClicked;
-            ButtonExamples.Background = buttonNotClicked;
-            ButtonTasks.Background = buttonNotClicked;
-            ButtonTests.Background = buttonClicked;
-            ButtonProgres.Background = buttonNotClicked;
+            foreach (Button item in Grid.Children.OfType<Button>())
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    Button button = (Button)item;
+                    button.IsEnabled = true;
+                }
+            }
+            ButtonTests.IsEnabled = false;
+            ContentControl.Content = new UserControls.UserControlTheoryListing();
         }
 
         private void ButtonProgres_Click(object sender, RoutedEventArgs e)
         {
+
+            foreach (Button item in Grid.Children.OfType<Button>())
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    Button button = (Button)item;
+                    button.IsEnabled = true;
+                }
+            }
+            ButtonProgres.IsEnabled = false;
             ContentControl.Content = new UserControls.UserControlProgresDisplay();
-            ButtonTheory.Background = buttonNotClicked;
-            ButtonExamples.Background = buttonNotClicked;
-            ButtonTasks.Background = buttonNotClicked;
-            ButtonTests.Background = buttonNotClicked;
-            ButtonProgres.Background = buttonClicked;
         }
     }
 }

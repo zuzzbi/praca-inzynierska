@@ -6,8 +6,38 @@
         xmlns:local="clr-namespace:EduMath"
         xmlns:usercontrols="clr-namespace:EduMath.UserControls"
         mc:Ignorable="d"
-        Title="EduMath" Height="450" Width="800">
-    <Grid Background="LightGray" MinHeight="200">
+        Title="EduMath" Height="450" Width="800" MinHeight="300" MinWidth="500">
+    
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Noto Serif Cond"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Background" Value="#FF3884C0"/>
+                    <Setter Property="FontWeight" Value="Normal"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#FF0A6493"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid x:Name="Grid" Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="120"/>
             <ColumnDefinition/>
@@ -24,12 +54,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0" x:Name="ButtonTheory" Content="Teoria" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTheory_Click" FontSize="25"/>
-        <Button Grid.Column="0" Grid.Row="1" x:Name="ButtonExamples" Content="Przykłady" Background="#FFFFC72E" BorderBrush="Transparent" FontSize="25" Click="ButtonExamples_Click"/>
-        <Button Grid.Column="0" Grid.Row="2" x:Name="ButtonTasks" Content="Zadania" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTasks_Click" FontSize="25"/>
-        <Button Grid.Column="0" Grid.Row="3" x:Name="ButtonTests" Content="Testy" Background="#FFFFC72E" BorderBrush="Transparent" Click="ButtonTests_Click" FontSize="25"/>
-        <Button Grid.Column="0" Grid.Row="4" x:Name="ButtonProgres" Content="Progres" Background="#FFFFC72E" BorderBrush="Transparent" FontSize="25" Click="ButtonProgres_Click"/>
+        <Button Grid.Column="0" Grid.Row="0" x:Name="ButtonTheory" Content="Teoria" Style="{StaticResource ButtonStyle}" Click="ButtonTheory_Click"/>
+        <Button Grid.Column="0" Grid.Row="1" x:Name="ButtonExamples" Content="Przykłady" Style="{StaticResource ButtonStyle}" Click="ButtonExamples_Click"/>
+        <Button Grid.Column="0" Grid.Row="2" x:Name="ButtonTasks" Content="Zadania" Style="{StaticResource ButtonStyle}" Click="ButtonTasks_Click"/>
+        <Button Grid.Column="0" Grid.Row="3" x:Name="ButtonTests" Content="Testy" Style="{StaticResource ButtonStyle}" Click="ButtonTests_Click"/>
+        <Button Grid.Column="0" Grid.Row="4" x:Name="ButtonProgres" Content="Progres" Style="{StaticResource ButtonStyle}" Click="ButtonProgres_Click"/>
 
         <ContentControl x:Name="ContentControl" x:FieldModifier="public" Content="{Binding}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
     </Grid>
 </Window>
+    

@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="660.8">
     <Grid>
-        <ListBox x:Name="ListBoxTheoryListing" Background="LightGray" BorderBrush="Transparent" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" FontSize="20" SelectionChanged="ListBoxTheoryListing_SelectionChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBoxTheoryListing" Background="LightGray" BorderBrush="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="10,10,10,10" FontSize="20" SelectionChanged="ListBoxTheoryListing_SelectionChanged">
             <ListBoxItem x:Name="ListBoxItemTheory1" Content="Pojęcia podstawowe"/>
             <ListBoxItem x:Name="ListBoxItemTheory2" Content="Liczby rzeczywiste"/>
             <ListBoxItem x:Name="ListBoxItemTheory3" Content="Wyrażenia algebraiczne, równania i nierówności"/>
@@ -27,6 +33,5 @@
             <ListBoxItem x:Name="ListBoxItemTheory17" Content="Optymalizacja"/>
             <ListBoxItem x:Name="ListBoxItemTheory18" Content="Rachunek prawdopodobieństwa i statystyka"/>
         </ListBox>
-
     </Grid>
 </UserControl>

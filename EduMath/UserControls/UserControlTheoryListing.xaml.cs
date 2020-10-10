@@ -28,13 +28,23 @@ namespace EduMath.UserControls
         private void ListBoxTheoryListing_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTheoryDisplay();
-            if (ListBoxItemTheory1.IsSelected)
+            if ((Application.Current.MainWindow as MainWindow).ButtonTheory.IsEnabled == false)
             {
-                ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "1";
+                if (ListBoxItemTheory1.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Theory1";
+                if (ListBoxItemTheory2.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Theory2";
+                if (ListBoxItemTheory3.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Theory3";
             }
-            if (ListBoxItemTheory2.IsSelected)
+            if ((Application.Current.MainWindow as MainWindow).ButtonExamples.IsEnabled == false)
             {
-                ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "2";
+                if (ListBoxItemTheory1.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Example1";
+                if (ListBoxItemTheory2.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Example2";
+                if (ListBoxItemTheory3.IsSelected)
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTheoryDisplay).TextBox1.Text = "Example3";
             }
         }
     }
