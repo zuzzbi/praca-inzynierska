@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -62,17 +63,11 @@
     <Compile Include="UserControls\UserControlProgresDisplay.xaml.cs">
       <DependentUpon>UserControlProgresDisplay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlTasksListing.xaml.cs">
-      <DependentUpon>UserControlTasksListing.xaml</DependentUpon>
+    <Compile Include="UserControls\UserControlDisplay.xaml.cs">
+      <DependentUpon>UserControlDisplay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlTestsListing.xaml.cs">
-      <DependentUpon>UserControlTestsListing.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlTheoryDisplay.xaml.cs">
-      <DependentUpon>UserControlTheoryDisplay.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlTheoryListing.xaml.cs">
-      <DependentUpon>UserControlTheoryListing.xaml</DependentUpon>
+    <Compile Include="UserControls\UserControlListing.xaml.cs">
+      <DependentUpon>UserControlListing.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,19 +89,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UserControlTasksListing.xaml">
+    <Page Include="UserControls\UserControlDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UserControlTestsListing.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\UserControlTheoryDisplay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\UserControlTheoryListing.xaml">
+    <Page Include="UserControls\UserControlListing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

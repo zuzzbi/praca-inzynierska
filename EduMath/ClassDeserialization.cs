@@ -9,7 +9,7 @@ namespace EduMath
 {
     class ClassDeserialization
     {
-        static string Deserialize(string path)
+        public static string Deserialize(string path)
         {
             if (File.Exists(path))
             {

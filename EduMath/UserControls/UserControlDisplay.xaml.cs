@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace EduMath.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserControlTestsListing.xaml
+    /// Logika interakcji dla klasy UserControlTheoryDisplay.xaml
     /// </summary>
-    public partial class UserControlTestsListing : UserControl
+    public partial class UserControlDisplay : UserControl
     {
-        public UserControlTestsListing()
+        public UserControlDisplay()
         {
             InitializeComponent();
+            DocumentViewer.FitToWidth();
         }
     }
 }

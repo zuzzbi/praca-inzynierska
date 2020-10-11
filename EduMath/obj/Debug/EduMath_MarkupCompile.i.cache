@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\zuzzb\source\repos\EduMath\EduMath\obj\Debug\
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\
 EduMath
 none
 false
 DEBUG;TRACE
-C:\Users\zuzzb\source\repos\EduMath\EduMath\App.xaml
-7696003384
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\App.xaml
+5-1418616651
 
-13-911596653
-13-1505183044
-MainWindow.xaml;UserControls\UserControlExamplesListing.xaml;UserControls\UserControlProgresDisplay.xaml;UserControls\UserControlTasksListing.xaml;UserControls\UserControlTestsListing.xaml;UserControls\UserControlTheoryDisplay.xaml;UserControls\UserControlTheoryListing.xaml;
+11-1172415130
+141539160066
+MainWindow.xaml;UserControls\UserControlExamplesListing.xaml;UserControls\UserControlProgresDisplay.xaml;UserControls\UserControlDisplay.xaml;UserControls\UserControlListing.xaml;
 
-False
+True
 

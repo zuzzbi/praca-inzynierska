@@ -38,7 +38,7 @@ namespace EduMath.UserControls {
     /// <summary>
     /// UserControlTheoryDisplay
     /// </summary>
-    public partial class UserControlTheoryDisplay : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class UserControlDisplay : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         /// <summary>
         /// TextBox1 Name Field

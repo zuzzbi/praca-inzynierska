@@ -38,7 +38,7 @@ namespace EduMath
                 }  
             }
             ButtonTheory.IsEnabled = false;
-            ContentControl.Content = new UserControls.UserControlTheoryListing();
+            ContentControl.Content = new UserControls.UserControlListing();
         }
 
         private void ButtonExamples_Click(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace EduMath
                 }
             }
             ButtonExamples.IsEnabled = false;
-            ContentControl.Content = new UserControls.UserControlTheoryListing();
+            ContentControl.Content = new UserControls.UserControlListing();
         }
 
         private void ButtonTasks_Click(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace EduMath
                 }
             }
             ButtonTasks.IsEnabled = false;
-            ContentControl.Content = new UserControls.UserControlTheoryListing();
+            ContentControl.Content = new UserControls.UserControlListing();
         }
 
         private void ButtonTests_Click(object sender, RoutedEventArgs e)
@@ -80,7 +80,7 @@ namespace EduMath
                 }
             }
             ButtonTests.IsEnabled = false;
-            ContentControl.Content = new UserControls.UserControlTheoryListing();
+            ContentControl.Content = new UserControls.UserControlListing();
         }
 
         private void ButtonProgres_Click(object sender, RoutedEventArgs e)
