@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace EduMath
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Główne okno wyświetlane cały czas, z zawartością reprezentowaną przez kontrolki użytkownika
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -27,6 +27,8 @@ namespace EduMath
             InitializeComponent();
         }
 
+        //Jeśli przycisk ButtonTheory został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true
+        //Otwórz kontrolkę UserControlListing
         private void ButtonTheory_Click(object sender, RoutedEventArgs e)
         {
             foreach (Button item in Grid.Children.OfType<Button>())
@@ -35,12 +37,14 @@ namespace EduMath
                 {
                     Button button = (Button)item;
                     button.IsEnabled = true;
-                }  
+                }
             }
             ButtonTheory.IsEnabled = false;
             ContentControl.Content = new UserControls.UserControlListing();
         }
 
+        //Jeśli przycisk ButtonExamples został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true
+        //Otwórz kontrolkę UserControlListing
         private void ButtonExamples_Click(object sender, RoutedEventArgs e)
         {
             foreach (Button item in Grid.Children.OfType<Button>())
@@ -55,6 +59,8 @@ namespace EduMath
             ContentControl.Content = new UserControls.UserControlListing();
         }
 
+        //Jeśli przycisk ButtonTasks został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true
+        //Otwórz kontrolkę UserControlListing
         private void ButtonTasks_Click(object sender, RoutedEventArgs e)
         {
             foreach (Button item in Grid.Children.OfType<Button>())
@@ -69,6 +75,8 @@ namespace EduMath
             ContentControl.Content = new UserControls.UserControlListing();
         }
 
+        //Jeśli przycisk ButtonTests został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true
+        //Otwórz kontrolkę UserControlListing
         private void ButtonTests_Click(object sender, RoutedEventArgs e)
         {
             foreach (Button item in Grid.Children.OfType<Button>())
@@ -83,6 +91,8 @@ namespace EduMath
             ContentControl.Content = new UserControls.UserControlListing();
         }
 
+        //Jeśli przycisk ButtonProgres został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true
+        //Otwórz kontrolkę UserControlProgresDisplay
         private void ButtonProgres_Click(object sender, RoutedEventArgs e)
         {
 
@@ -97,5 +107,8 @@ namespace EduMath
             ButtonProgres.IsEnabled = false;
             ContentControl.Content = new UserControls.UserControlProgresDisplay();
         }
+
+        //Zmienna, która przechowuje numer obecnie wybranego działu, nadpisywana jest w kontrolce UserControlListing, gdy przycisk ButtonTasks jest wciśnięty
+        public int sectionNumber;
     }
 }

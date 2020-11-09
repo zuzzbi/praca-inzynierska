@@ -31,13 +31,11 @@ C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\bin\Debug\EduMath.exe
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\bin\Debug\EduMath.pdb
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\EduMath.csprojAssemblyReference.cache
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\MainWindow.g.cs
-C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlExamplesListing.g.cs
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlProgresDisplay.g.cs
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\App.g.cs
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\EduMath_MarkupCompile.cache
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\EduMath_MarkupCompile.lref
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\MainWindow.baml
-C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlExamplesListing.baml
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlProgresDisplay.baml
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\EduMath.g.resources
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\EduMath.Properties.Resources.resources
@@ -49,3 +47,7 @@ C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlListing.baml
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlDisplay.g.cs
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlDisplay.baml
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksListing.g.cs
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksListing.baml
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksDisplay.g.cs
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksDisplay.baml

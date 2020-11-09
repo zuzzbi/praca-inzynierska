@@ -13,11 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
+using System.IO;
 
 namespace EduMath.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserControlTheoryListing.xaml
+    /// Kontrolka użytkownika do wyświetlania listy działów matematycznych
     /// </summary>
     public partial class UserControlListing : UserControl
     {
@@ -27,40 +28,35 @@ namespace EduMath.UserControls
         }
 
         private void ListBoxTheoryListing_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlDisplay();
+        {   
+            //Jeśli wyciśnięty jest przycisk ButtonTheory z MainWindow
             if ((Application.Current.MainWindow as MainWindow).ButtonTheory.IsEnabled == false)
             {
-                if (ListBoxItemTheory1.IsSelected)
-                {
-                    XpsDocument xpsDocument = new XpsDocument(@"C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\Theory\Theory1.xps", System.IO.FileAccess.Read);
-                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
-                    //((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = ClassDeserialization.Deserialize("../../Theory/PI_teoria.txt");
+                string number;
+                //Otwórz kontrolkę UserControlDisplay
+                (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlDisplay();
 
-                    //Image image = new Image();
-                    //BitmapImage bitmapImage = new BitmapImage();
-                    //bitmapImage.BeginInit();
-                    //bitmapImage.UriSource = new Uri(@"C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\UserControls\eqn.png");
-                    //bitmapImage.EndInit();
-                    //image.Source = bitmapImage;
-                    //image.Width = 100;
-                    //image.Height = 40;
-                    //((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).Grid.Children.Add(image);               
-                }
-                //if (ListBoxItemTheory2.IsSelected)
-                //    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = "Theory2";
-                //if (ListBoxItemTheory3.IsSelected)
-                //    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = "Theory3";
+                //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItemTheory
+                number = Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", "");
+                string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
+                path = path + @"\Theory\Theory" + number + ".xps";
+
+                //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+                XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
+
+                //Wyświetl w kontrolce DocumentViewer z kontrolki użytkownika UserControlDisplay uzyskany dokument xpsDocument
+                ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
             }
-            //if ((Application.Current.MainWindow as MainWindow).ButtonExamples.IsEnabled == false)
-            //{
-            //    if (ListBoxItemTheory1.IsSelected)
-            //        ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = "Example1";
-            //    if (ListBoxItemTheory2.IsSelected)
-            //        ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = "Example2";
-            //    if (ListBoxItemTheory3.IsSelected)
-            //        ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).TextBox1.Text = "Example3";
-            //}
+
+            //Jeśli wyciśnięty jest przycisk ButtonTasks z MainWindow
+            if ((Application.Current.MainWindow as MainWindow).ButtonTasks.IsEnabled == false)
+            {
+                //Nadpisz zmienną sectionNumber z MainWindow wartością numeru z nazwy wybranego obiektu ListBoxItemTheory
+                (Application.Current.MainWindow as MainWindow).sectionNumber = Convert.ToInt32(Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", ""));               
+                
+                //Otwórz kontrolkę UserControlTasksListing
+                (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTasksListing();
+            }
         }
     }
 }

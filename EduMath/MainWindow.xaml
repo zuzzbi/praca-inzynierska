@@ -13,8 +13,8 @@
             <Setter Property="OverridesDefaultStyle" Value="True" />
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontFamily" Value="Noto Serif Cond"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -39,7 +39,7 @@
     
     <Grid x:Name="Grid" Background="Transparent">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="120"/>
+            <ColumnDefinition MinWidth="150"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>

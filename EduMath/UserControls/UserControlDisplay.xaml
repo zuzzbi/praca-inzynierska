@@ -6,6 +6,32 @@
              xmlns:local="clr-namespace:EduMath.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="660.8">
+
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderBrush" Value="#ED7D31"/>
+            <Setter Property="Background" Value="#ED7D31"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#EB6C15"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
     <Grid x:Name="Grid">
         <!--<StackPanel x:Name="StackPanel">
             <TextBox x:Name="TextBox1" x:FieldModifier="public" IsEnabled="False" Background="Transparent" BorderBrush="Transparent"/>
@@ -13,15 +39,23 @@
         </StackPanel>-->
         <!--<TextBox x:Name="TextBox1" x:FieldModifier="public" Background="Transparent" BorderBrush="Transparent" IsEnabled="False"/>-->
         <!--<Image x:Name="Image1" x:FieldModifier="public"/>-->
-        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="2">
             <DocumentViewer.Resources>
                 <Style TargetType="ContentControl">
-                    <Setter Property="Visibility" Value="Collapsed" />
+                    <!--<Setter Property="Visibility" Value="Collapsed" />-->
+                    <!--<Setter Property="Width" Value="325"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>-->
                 </Style>
                 <Style TargetType="ToolBar">
                     <Setter Property="Visibility" Value="Collapsed" />
                 </Style>
             </DocumentViewer.Resources>
         </DocumentViewer>
+
+        <Button x:Name="ButtonReturn" Content="Powrót" Margin="0,5.8,0.8,0.6" Click="ButtonReturn_Click" Width="81" Grid.Row="1" Grid.RowSpan="1" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}"/>
     </Grid>
 </UserControl>

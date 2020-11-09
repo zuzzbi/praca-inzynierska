@@ -16,14 +16,22 @@ using System.Windows.Shapes;
 namespace EduMath.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserControlTheoryDisplay.xaml
+    /// Kontrolka użytkownika służąca do wyświetlania plików .xps zawierających teorię
     /// </summary>
     public partial class UserControlDisplay : UserControl
     {
         public UserControlDisplay()
         {
             InitializeComponent();
+
+            //Dostosuj szerokość kontrolki DocumentViewer do szerokości okna
             DocumentViewer.FitToWidth();
+        }
+
+        private void ButtonReturn_Click(object sender, RoutedEventArgs e)
+        {
+            //Otwórz poprzednią kontrolkę UserControlListing
+            (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlListing();
         }
     }
 }
