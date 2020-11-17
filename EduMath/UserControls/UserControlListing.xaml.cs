@@ -32,20 +32,29 @@ namespace EduMath.UserControls
             //Jeśli wyciśnięty jest przycisk ButtonTheory z MainWindow
             if ((Application.Current.MainWindow as MainWindow).ButtonTheory.IsEnabled == false)
             {
-                string number;
-                //Otwórz kontrolkę UserControlDisplay
-                (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlDisplay();
+                try
+                {
+                    string number;
 
-                //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItemTheory
-                number = Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", "");
-                string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
-                path = path + @"\Theory\Theory" + number + ".xps";
+                    //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItemTheory
+                    number = Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", "");
+                    string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
+                    path = path + @"\Theory\Theory" + number + ".xps";
 
-                //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
-                XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
+                    //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+                    XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
 
-                //Wyświetl w kontrolce DocumentViewer z kontrolki użytkownika UserControlDisplay uzyskany dokument xpsDocument
-                ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
+                    //Otwórz kontrolkę UserControlDisplay
+                    (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlDisplay();
+
+                    //Wyświetl w kontrolce DocumentViewer z kontrolki użytkownika UserControlDisplay uzyskany dokument xpsDocument
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
+                    xpsDocument.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nie można wyświetlić tego pliku", "Plik uszkodzony", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
             //Jeśli wyciśnięty jest przycisk ButtonTasks z MainWindow

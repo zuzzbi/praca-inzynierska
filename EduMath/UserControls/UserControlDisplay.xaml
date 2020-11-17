@@ -43,7 +43,7 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="2">
+        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="2" >
             <DocumentViewer.Resources>
                 <Style TargetType="ContentControl">
                     <!--<Setter Property="Visibility" Value="Collapsed" />-->

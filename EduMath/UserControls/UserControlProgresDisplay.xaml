@@ -7,6 +7,70 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="660.8">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*" MinWidth="400"/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+        <ItemsControl x:Name="ItemsControl1" Background="Transparent" BorderBrush="Transparent" Margin="5,5,5,5" FontSize="28" FontFamily="Arial" Grid.Column="0" Grid.ColumnSpan="1">
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="TextBox">
+                    <Setter Property="Height" Value="25" />
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="TextAlignment" Value="Right"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <TextBox x:Name="TextBoxSection1" Text="Pojęcia podstawowe"/>
+            <TextBox x:Name="TextBoxSection2" Text="Równania i nierówności"/>
+            <TextBox x:Name="TextBoxSection3" Text="Wyrażenia algebraiczne"/>
+            <TextBox x:Name="TextBoxSection4" Text="Geometria - własności figur"/>
+            <TextBox x:Name="TextBoxSection5" Text="Trygonometria"/>
+            <TextBox x:Name="TextBoxSection6" Text="Geometria - pola figur"/>
+            <TextBox x:Name="TextBoxSection7" Text="Funkcje"/>
+            <TextBox x:Name="TextBoxSection8" Text="Funkcje liniowe"/>
+            <TextBox x:Name="TextBoxSection9" Text="Funkcje kwadratowe"/>
+            <TextBox x:Name="TextBoxSection10" Text="Funkcje trygonometryczne"/>
+            <TextBox x:Name="TextBoxSection11" Text="Wielomiany"/>
+            <TextBox x:Name="TextBoxSection12" Text="Funkcje wymierne i homograficzne"/>
+            <TextBox x:Name="TextBoxSection13" Text="Funkcje wykładnicze i logarytmiczne"/>
+            <TextBox x:Name="TextBoxSection14" Text="Ciągi"/>
+            <TextBox x:Name="TextBoxSection15" Text="Analiza matematyczna"/>
+            <TextBox x:Name="TextBoxSection16" Text="Geometria analityczna"/>
+            <TextBox x:Name="TextBoxSection17" Text="Geometria przestrzenna"/>
+            <TextBox x:Name="TextBoxSection18" Text="Rachunek prawdopodobieństwa i statystyka"/>
+        </ItemsControl>
+        <ItemsControl x:Name="ItemsControl2" Background="Transparent" BorderBrush="Transparent" Margin="5,5,5,5" FontSize="28" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="1">
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="TextBox">
+                    <Setter Property="Height" Value="25" />
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <TextBox x:Name="TextBoxProgres1" />
+            <TextBox x:Name="TextBoxProgres2" />
+            <TextBox x:Name="TextBoxProgres3" />
+            <TextBox x:Name="TextBoxProgres4" />
+            <TextBox x:Name="TextBoxProgres5" />
+            <TextBox x:Name="TextBoxProgres6" />
+            <TextBox x:Name="TextBoxProgres7" />
+            <TextBox x:Name="TextBoxProgres8" />
+            <TextBox x:Name="TextBoxProgres9" />
+            <TextBox x:Name="TextBoxProgres10" />
+            <TextBox x:Name="TextBoxProgres11" />
+            <TextBox x:Name="TextBoxProgres12" />
+            <TextBox x:Name="TextBoxProgres13" />
+            <TextBox x:Name="TextBoxProgres14" />
+            <TextBox x:Name="TextBoxProgres15" />
+            <TextBox x:Name="TextBoxProgres16" />
+            <TextBox x:Name="TextBoxProgres17" />
+            <TextBox x:Name="TextBoxProgres18" />
+        </ItemsControl>
     </Grid>
 </UserControl>
