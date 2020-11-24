@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EduMath"
         xmlns:usercontrols="clr-namespace:EduMath.UserControls"
         mc:Ignorable="d"
-        Title="EduMath" Height="600" Width="1200" MinHeight="300" MinWidth="500">
+        Title="EduMath" Height="600" Width="1200" MinHeight="600" MinWidth="770">
     
     <Window.Resources>
         <Style TargetType="Button" x:Key="ButtonStyle">

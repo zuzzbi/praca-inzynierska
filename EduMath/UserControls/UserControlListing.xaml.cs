@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
 using System.IO;
+using System.Windows.Xps;
 
 namespace EduMath.UserControls
 {
@@ -65,6 +66,16 @@ namespace EduMath.UserControls
                 
                 //Otwórz kontrolkę UserControlTasksListing
                 (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTasksListing();
+            }
+
+            //Jeśli wyciśnięty jest przycisk ButtonTests z MainWindow
+            if ((Application.Current.MainWindow as MainWindow).ButtonTests.IsEnabled == false)
+            {
+                //Nadpisz zmienną sectionNumber z MainWindow wartością numeru z nazwy wybranego obiektu ListBoxItemTheory
+                (Application.Current.MainWindow as MainWindow).sectionNumber = Convert.ToInt32(Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", ""));
+
+                //Otwórz kontrolkę UserControlTasksListing
+                (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTestsDisplay();
             }
         }
     }

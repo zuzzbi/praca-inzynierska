@@ -25,6 +25,8 @@ namespace EduMath
         public MainWindow()
         {
             InitializeComponent();
+            ButtonProgres.IsEnabled = false;
+            ContentControl.Content = new UserControls.UserControlProgresDisplay();
         }
 
         //Jeśli przycisk ButtonTheory został wciśnięty, zmień wartość jego właściwości isEnabled na false oraz wartość właściwości isEnabled pozostałych przycisków na true

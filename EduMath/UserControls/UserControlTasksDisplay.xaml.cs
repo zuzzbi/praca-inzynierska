@@ -34,5 +34,10 @@ namespace EduMath.UserControls
             //Otwórz poprzednią kontrolkę UserControlTaskListing
             (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTasksListing();
         }
+
+        private void ButtonScale_Click(object sender, RoutedEventArgs e)
+        {
+            DocumentViewer.FitToWidth();
+        }
     }
 }

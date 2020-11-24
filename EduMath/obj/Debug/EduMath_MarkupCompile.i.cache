@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\App.xaml
-6-47358243
+7532161142
 
-11-2110692737
+12289429875
 15869505974
-MainWindow.xaml;UserControls\UserControlTasksDisplay.xaml;UserControls\UserControlTasksListing.xaml;UserControls\UserControlProgresDisplay.xaml;UserControls\UserControlDisplay.xaml;UserControls\UserControlListing.xaml;
+MainWindow.xaml;UserControls\UserControlTasksDisplay.xaml;UserControls\UserControlTasksListing.xaml;UserControls\UserControlProgresDisplay.xaml;UserControls\UserControlDisplay.xaml;UserControls\UserControlListing.xaml;UserControls\UserControlTestsDisplay.xaml;
 
-True
+False
 

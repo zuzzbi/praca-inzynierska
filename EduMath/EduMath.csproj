@@ -72,6 +72,9 @@
     <Compile Include="UserControls\UserControlListing.xaml.cs">
       <DependentUpon>UserControlListing.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlTestsDisplay.xaml.cs">
+      <DependentUpon>UserControlTestsDisplay.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserControlTestsDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -127,11 +134,41 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Tasks\1\Task1.xps" />
+    <None Include="Tasks\1\Task2.xps" />
+    <None Include="Tasks\1\Task3.xps" />
+    <None Include="Tasks\1\Task4.xps" />
+    <None Include="Tasks\1\Task5.xps" />
+    <None Include="Tasks\1\Task6.xps" />
+    <None Include="Tasks\3\Task1.xps" />
+    <None Include="Tasks\3\Task2.xps" />
+    <None Include="Tasks\3\Task3.xps" />
+    <None Include="Tasks\3\Task4.xps" />
+    <None Include="Tasks\4\Task1.xps" />
+    <None Include="Tasks\4\Task2.xps" />
+    <None Include="Tasks\4\Task3.xps" />
+    <None Include="Tasks\4\Task4.xps" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Tasks\10\" />
+    <Folder Include="Tasks\11\" />
+    <Folder Include="Tasks\12\" />
+    <Folder Include="Tasks\13\" />
+    <Folder Include="Tasks\14\" />
+    <Folder Include="Tasks\15\" />
+    <Folder Include="Tasks\16\" />
+    <Folder Include="Tasks\17\" />
+    <Folder Include="Tasks\18\" />
+    <Folder Include="Tasks\2\" />
+    <Folder Include="Tasks\5\" />
+    <Folder Include="Tasks\6\" />
+    <Folder Include="Tasks\7\" />
+    <Folder Include="Tasks\8\" />
+    <Folder Include="Tasks\9\" />
+    <Folder Include="Tests\" />
     <Folder Include="Theory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

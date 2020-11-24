@@ -25,26 +25,54 @@ namespace EduMath.UserControls
         {
             InitializeComponent();
 
-            StreamReader streamReader = new StreamReader("progres.txt");
-            string all = streamReader.ReadToEnd();
-            string[] lines = all.Split('\n');
-            streamReader.Close();
+            try
+            {
+                StreamReader streamReader = new StreamReader("progres.txt");
+                string all = streamReader.ReadToEnd();
+                string[] lines = all.Split('\n');
+                streamReader.Close();
 
-            foreach (TextBox item in ItemsControl2.Items)
-            {              
-                int number = Convert.ToInt32(item.Name.Replace("TextBoxProgres", ""));
-                int completedTasks = 0;
-                string line = lines[number - 1];
-                for (int i = 0; i < line.Length; i++)
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    if (line[i] == '1')
+                    string line = lines[i];
+                    if (i == lines.Length - 1)
                     {
-                        completedTasks++;
+                        string[] results = line.Split(' ');
+                        for (int j = 0; j < results.Length; j++)
+                        {
+                            TextBlock textBlock = new TextBlock();
+                            textBlock.Text = results[j] + "%";
+                            ItemsControl3.Items.Add(textBlock);
+                        }
+                    }
+                    else
+                    {
+                        int completedTasks = 0;
+                        for (int j = 0; j < line.Length; j++)
+                        {
+                            if (line[j] == '1')
+                            {
+                                completedTasks++;
+                            }
+                        }
+                        int percentage = (completedTasks * 100) / line.Trim('\n').Trim('\r').Length;
+
+                        TextBlock textBlock = new TextBlock();
+                        textBlock.Text = percentage + "%";
+                        ItemsControl2.Items.Add(textBlock);
                     }
                 }
-                int percentage = (completedTasks * 100) / line.Trim('\n').Trim('\r').Length;
+            }
+            catch (Exception)
+            {
+                ItemsControl1.Visibility = Visibility.Hidden;
+                ItemsControl2.Visibility = Visibility.Hidden;
+                ItemsControl3.Visibility = Visibility.Hidden;
+                TextBlock1.Visibility = Visibility.Hidden;
+                TextBlock2.Visibility = Visibility.Hidden;
+                TextBlock3.Visibility = Visibility.Hidden;
+                TextBlockError.Visibility = Visibility.Visible;
 
-                item.Text = percentage + "%";
             }
         }
     }

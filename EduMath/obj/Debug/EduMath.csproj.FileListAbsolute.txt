@@ -51,3 +51,5 @@ C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksListing.baml
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksDisplay.g.cs
 C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTasksDisplay.baml
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTestsDisplay.g.cs
+C:\Users\zuzzb\Documents\GitHub\praca-inzynierska\EduMath\obj\Debug\UserControls\UserControlTestsDisplay.baml
