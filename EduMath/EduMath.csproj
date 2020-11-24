@@ -153,6 +153,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Examples\" />
     <Folder Include="Tasks\10\" />
     <Folder Include="Tasks\11\" />
     <Folder Include="Tasks\12\" />

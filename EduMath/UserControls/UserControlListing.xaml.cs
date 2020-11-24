@@ -58,6 +58,34 @@ namespace EduMath.UserControls
                 }
             }
 
+            //Jeśli wyciśnięty jest przycisk ButtonTheory z MainWindow
+            if ((Application.Current.MainWindow as MainWindow).ButtonExamples.IsEnabled == false)
+            {
+                try
+                {
+                    string number;
+
+                    //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItemTheory
+                    number = Convert.ToString((ListBoxTheoryListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTheory", "");
+                    string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
+                    path = path + @"\Examples\Example" + number + ".xps";
+
+                    //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+                    XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
+
+                    //Otwórz kontrolkę UserControlDisplay
+                    (Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlDisplay();
+
+                    //Wyświetl w kontrolce DocumentViewer z kontrolki użytkownika UserControlDisplay uzyskany dokument xpsDocument
+                    ((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlDisplay).DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
+                    xpsDocument.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nie można wyświetlić tego pliku", "Plik uszkodzony", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
             //Jeśli wyciśnięty jest przycisk ButtonTasks z MainWindow
             if ((Application.Current.MainWindow as MainWindow).ButtonTasks.IsEnabled == false)
             {
