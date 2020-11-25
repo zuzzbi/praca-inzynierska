@@ -22,34 +22,59 @@ namespace EduMath.UserControls
 
             //Utwórz ścieżkę path do folderu na podstawie zmiennej sectionNumber zapisanej w MainWindow 
             string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
-            DirectoryInfo directoryInfo = new DirectoryInfo(path + @"\Tasks\" + (Application.Current.MainWindow as MainWindow).sectionNumber);
-
-            if (directoryInfo.GetFiles("*.xps").Length == 0)
-            {
-                MessageBox.Show("Nie znaleziono plików do wyświetlenia", "Brak plików", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            DirectoryInfo directoryInfo = new DirectoryInfo(path + @"\Tasks\Tasks" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".xps");
 
             //Dla każdego pliku .xps z uzyskanego folderu dodaj obiekty do dwóch list: ChceckBox oraz ListBoxItem o odpowiednim numerze odpowiadającym jego nazwie
-            foreach (var item in directoryInfo.GetFiles("*.xps"))
+            //foreach (var item in directoryInfo.GetFiles("*.xps"))
+            //{
+            //    ////Pobierz numer n zadania z nazwy pliku
+            //    //int n = Convert.ToInt32(item.Name.Replace("Task", "").Replace(".xps", ""));
+
+            //    ////Utwórz obiekt CheckBox z odpowiednim numerem i dodaj do drugiej listy
+            //    //CheckBox checkBox = new CheckBox();
+            //    //checkBox.Name = "CheckBoxTask" + n;
+            //    //checkBox.Checked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
+            //    //checkBox.Unchecked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
+            //    //Viewbox checkBoxItem = new Viewbox();
+            //    //checkBoxItem.Child = checkBox;
+            //    //ListBoxTaskListing2.Items.Add(checkBoxItem);
+            //    ////StackPanel.Children.Add(checkBox);
+
+            //    ////Utwórz obiekt ListBoxItem z odpowiednim numerem i dodaj do pierwszej listy
+            //    //ListBoxItem listBoxItemTask = new ListBoxItem();
+            //    //listBoxItemTask.Content = item.Name.Replace("Task", "Zadanie ").Replace(".xps", "");
+            //    //listBoxItemTask.Name = "ListBoxItemTask" + n;
+            //    //ListBoxTaskListing.Items.Add(listBoxItemTask);
+
+            //    //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+            //}
+            try
             {
-                //Pobierz numer n zadania z nazwy pliku
-                int n = Convert.ToInt32(item.Name.Replace("Task", "").Replace(".xps", ""));
+                XpsDocument xpsDocument = new XpsDocument(directoryInfo.FullName, FileAccess.Read);
+                int numberOfTasks = xpsDocument.GetFixedDocumentSequence().DocumentPaginator.PageCount / 2;
+                for (int i = 0; i < numberOfTasks; i++)
+                {
+                    int n = i + 1;
+                    //Utwórz obiekt CheckBox z odpowiednim numerem i dodaj do drugiej listy
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Name = "CheckBoxTask" + n;
+                    checkBox.Checked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
+                    checkBox.Unchecked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
+                    Viewbox checkBoxItem = new Viewbox();
+                    checkBoxItem.Child = checkBox;
+                    ListBoxTaskListing2.Items.Add(checkBoxItem);
+                    //StackPanel.Children.Add(checkBox);
 
-                //Utwórz obiekt CheckBox z odpowiednim numerem i dodaj do drugiej listy
-                CheckBox checkBox = new CheckBox();
-                checkBox.Name = "CheckBoxTask" + n;
-                checkBox.Checked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
-                checkBox.Unchecked += new RoutedEventHandler(CheckBoxTask_CheckedChange);
-                Viewbox checkBoxItem = new Viewbox();
-                checkBoxItem.Child = checkBox;
-                ListBoxTaskListing2.Items.Add(checkBoxItem);
-                //StackPanel.Children.Add(checkBox);
-
-                //Utwórz obiekt ListBoxItem z odpowiednim numerem i dodaj do pierwszej listy
-                ListBoxItem listBoxItemTask = new ListBoxItem();
-                listBoxItemTask.Content = item.Name.Replace("Task", "Zadanie ").Replace(".xps", "");
-                listBoxItemTask.Name = "ListBoxItemTask" + n;
-                ListBoxTaskListing.Items.Add(listBoxItemTask);
+                    //Utwórz obiekt ListBoxItem z odpowiednim numerem i dodaj do pierwszej listy
+                    ListBoxItem listBoxItemTask = new ListBoxItem();
+                    listBoxItemTask.Content = "Zadanie " + n;
+                    listBoxItemTask.Name = "ListBoxItemTask" + n;
+                    ListBoxTaskListing.Items.Add(listBoxItemTask);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Plik uszkodzony", "Brak plików", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             try
@@ -100,15 +125,43 @@ namespace EduMath.UserControls
                 File.Delete("x.xps");
                 File.Delete("y.xps");
 
+                ////Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
+                //string number = Convert.ToString((ListBoxTaskListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTask", "");
+                //string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
+                //path = path + @"\Tasks\" + (Application.Current.MainWindow as MainWindow).sectionNumber + @"\Task" + number + ".xps";             
+
+                ////Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+                //XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
+                //FixedPage fixedPageTask = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[0].GetPageRoot(false);
+                //FixedPage fixedPageAns = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[1].GetPageRoot(false);
+                //XpsDocument xpsDocumentTask = new XpsDocument("x.xps", FileAccess.ReadWrite);
+                //XpsDocumentWriter xpsDocumentWriterTask = XpsDocument.CreateXpsDocumentWriter(xpsDocumentTask);
+                //xpsDocumentWriterTask.Write(fixedPageTask);
+                //XpsDocument xpsDocumentAns = new XpsDocument("y.xps", FileAccess.ReadWrite);
+                //XpsDocumentWriter xpsDocumentWriterAns = XpsDocument.CreateXpsDocumentWriter(xpsDocumentAns);
+                //xpsDocumentWriterAns.Write(fixedPageAns);
+
+                ////Otwórz kontrolkę UserControlTasksDisplay
+                //(Application.Current.MainWindow as MainWindow).ContentControl.Content = new UserControlTasksDisplay();
+
+                ////Wyświetl w kontrolce DocumentViewer z kontrolki użytkownika UserControlTasksDisplay uzyskany dokument xpsDocument
+                //((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTasksDisplay).DocumentViewer.Document = xpsDocumentTask.GetFixedDocumentSequence();
+                //((Application.Current.MainWindow as MainWindow).ContentControl.Content as UserControlTasksDisplay).DocumentViewerExpander.Document = xpsDocumentAns.GetFixedDocumentSequence();
+
+                //xpsDocument.Close();
+                //xpsDocumentTask.Close();
+                //xpsDocumentAns.Close();
+
                 //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
                 string number = Convert.ToString((ListBoxTaskListing.SelectedItem as ListBoxItem).Name).Replace("ListBoxItemTask", "");
+                int taskNumber = Convert.ToInt32(number) - 1;
                 string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
-                path = path + @"\Tasks\" + (Application.Current.MainWindow as MainWindow).sectionNumber + @"\Task" + number + ".xps";             
+                path = path + @"\Tasks\Tasks" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".xps";
 
                 //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
                 XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
-                FixedPage fixedPageTask = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[0].GetPageRoot(false);
-                FixedPage fixedPageAns = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[1].GetPageRoot(false);
+                FixedPage fixedPageTask = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[taskNumber * 2].GetPageRoot(false);
+                FixedPage fixedPageAns = xpsDocument.GetFixedDocumentSequence().References.First().GetDocument(false).Pages[taskNumber * 2 + 1].GetPageRoot(false);
                 XpsDocument xpsDocumentTask = new XpsDocument("x.xps", FileAccess.ReadWrite);
                 XpsDocumentWriter xpsDocumentWriterTask = XpsDocument.CreateXpsDocumentWriter(xpsDocumentTask);
                 xpsDocumentWriterTask.Write(fixedPageTask);

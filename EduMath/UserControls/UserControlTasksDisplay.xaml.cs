@@ -27,6 +27,7 @@ namespace EduMath.UserControls
 
             //Dostosuj szerokość kontrolki DocumentViewer do szerokości okna
             DocumentViewer.FitToWidth();
+            DocumentViewerExpander.FitToWidth();
         }
 
         private void ButtonReturn_Click(object sender, RoutedEventArgs e)

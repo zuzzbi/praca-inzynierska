@@ -74,7 +74,7 @@
 
         <Expander x:Name="Expander" Header="Pokaż odpowiedź" IsExpanded="False" ExpandDirection="Up" FontSize="14" FontFamily="Arial"  Grid.RowSpan="1" Grid.Row="1">
             <Grid x:Name="GridExpander">
-                <DocumentViewer Name="DocumentViewerExpander" Background="Transparent" ShowPageBorders="False" BorderBrush="Transparent">
+                <DocumentViewer Name="DocumentViewerExpander" Background="White" ShowPageBorders="False" BorderBrush="Transparent">
                     <DocumentViewer.Resources>
                         <Style TargetType="ContentControl">
                             <Setter Property="Visibility" Value="Hidden" />
