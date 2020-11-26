@@ -74,7 +74,7 @@ namespace EduMath.UserControls
             }
             catch (Exception)
             {
-                MessageBox.Show("Plik uszkodzony", "Brak plików", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Nie można wyświetlić zawartości", "Brak plików", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             try

@@ -82,16 +82,16 @@
         </DocumentViewer>
 
         <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1">
-            <RadioButton x:Name="A" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="A" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">A</RadioButton>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1">
-            <RadioButton x:Name="B" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="B" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">B</RadioButton>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1">
-            <RadioButton x:Name="C" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="C" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">C</RadioButton>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="1">
-            <RadioButton x:Name="D" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="D" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">D</RadioButton>
         </Viewbox>
 
         <Button x:Name="ButtonScale" Content="Dopasuj do okna" Margin="0,0,86,0.6" Click="ButtonScale_Click" Width="150" Height="24" Grid.Row="2" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle2}" VerticalAlignment="Bottom"/>

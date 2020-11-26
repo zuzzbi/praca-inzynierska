@@ -40,7 +40,7 @@ namespace EduMath.UserControls
                 //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
                 string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
                 string pathXPS = path + @"\Tests\Test" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".xps";
-                string pathTXT = path + @"\Tests\TestAns" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".txt";
+                string pathTXT = path + @"\Tests\TestsAns.txt";
 
                 //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
                 XpsDocument xpsDocument = new XpsDocument(pathXPS, FileAccess.Read);
@@ -60,12 +60,6 @@ namespace EduMath.UserControls
                 streamReader.Close();
 
                 answerLines = answers.Split('\n');
-
-                string[] answerLine = answerLines[questionNumber].Split(' ');
-                A.Content = answerLine[0];
-                B.Content = answerLine[1];
-                C.Content = answerLine[2];
-                D.Content = answerLine[3].Replace("\r", "");
                 questionNumber++;
             }
             catch (Exception)
@@ -86,11 +80,11 @@ namespace EduMath.UserControls
             A.IsChecked = false;
             B.IsChecked = false;
             C.IsChecked = false;
-            C.IsChecked = false;
+            D.IsChecked = false;
             try
             {
                 //Usuń pliki pomocnicze
-                if (answerLines[answerLines.Length - 1][questionNumber] == currentAnswer)
+                if (answerLines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1][questionNumber] == currentAnswer)
                 {
                     positiveAnswersNumber++;
                 }
@@ -112,12 +106,6 @@ namespace EduMath.UserControls
 
                 xpsDocument.Close();
                 xpsDocumentQuestion.Close();
-
-                string[] answerLine = answerLines[questionNumber].Split(' ');
-                A.Content = answerLine[0];
-                B.Content = answerLine[1];
-                C.Content = answerLine[2];
-                D.Content = answerLine[3].Replace("\r","");
                 questionNumber++;
             }
             catch (Exception)
