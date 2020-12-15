@@ -80,8 +80,9 @@ namespace EduMath.UserControls
             try
             {
                 //Odczytaj plik progres.txt i utwórz tablicę lines typu string złożoną z jego linijek
-                StreamReader streamReader = new StreamReader("progres.txt");
+                StreamReader streamReader = new StreamReader("progres.dat");
                 string all = streamReader.ReadToEnd();
+                all = Encoding.UTF8.GetString(Convert.FromBase64String(all));
                 streamReader.Close();
                 string[] lines = all.Split('\n');
 
@@ -200,8 +201,9 @@ namespace EduMath.UserControls
                 int taskNumber = Convert.ToInt32(checkBox.Name.Replace("CheckBoxTask", ""));
                 if (checkBox.IsChecked == true)
                 {
-                    StreamReader streamReader = new StreamReader("progres.txt");
+                    StreamReader streamReader = new StreamReader("progres.dat");
                     string all = streamReader.ReadToEnd();
+                    all = Encoding.UTF8.GetString(Convert.FromBase64String(all));
                     string[] lines = all.Split('\n');
                     streamReader.Close();
                     StringBuilder line = new StringBuilder(lines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1]);
@@ -212,12 +214,13 @@ namespace EduMath.UserControls
                     {
                         newAll += lines[i] + '\n';
                     }
-                    File.WriteAllText("progres.txt", newAll.Trim('\n'));
+                    File.WriteAllText("progres.dat", Convert.ToBase64String(Encoding.UTF8.GetBytes(newAll.Trim('\n'))));
                 }
                 if (checkBox.IsChecked == false)
                 {
-                    StreamReader streamReader = new StreamReader("progres.txt");
+                    StreamReader streamReader = new StreamReader("progres.dat");
                     string all = streamReader.ReadToEnd();
+                    all = Encoding.UTF8.GetString(Convert.FromBase64String(all));
                     string[] lines = all.Split('\n');
                     streamReader.Close();
                     StringBuilder line = new StringBuilder(lines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1]);
@@ -228,7 +231,7 @@ namespace EduMath.UserControls
                     {
                         newAll += lines[i] + '\n';
                     }
-                    File.WriteAllText("progres.txt", newAll.Trim('\n'));
+                    File.WriteAllText("progres.dat", Convert.ToBase64String(Encoding.UTF8.GetBytes(newAll.Trim('\n'))));
                 }
             }
             catch (Exception) { }

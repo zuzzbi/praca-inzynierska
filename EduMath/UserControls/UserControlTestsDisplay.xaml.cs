@@ -40,7 +40,7 @@ namespace EduMath.UserControls
                 //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
                 string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
                 string pathXPS = path + @"\Tests\Test" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".xps";
-                string pathTXT = path + @"\Tests\TestsAns.txt";
+                string pathTXT = path + @"\Tests\testsAns.dat";
 
                 //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
                 XpsDocument xpsDocument = new XpsDocument(pathXPS, FileAccess.Read);
@@ -57,6 +57,7 @@ namespace EduMath.UserControls
 
                 StreamReader streamReader = new StreamReader(pathTXT);
                 string answers = streamReader.ReadToEnd();
+                answers = Encoding.UTF8.GetString(Convert.FromBase64String(answers));
                 streamReader.Close();
 
                 answerLines = answers.Split('\n');
@@ -119,8 +120,9 @@ namespace EduMath.UserControls
                 TextBlockTest.Visibility = Visibility.Visible;
                 int positiveAnswersPercentage = (positiveAnswersNumber * 100) / questionNumber;
 
-                StreamReader streamReader = new StreamReader("progres.txt");
+                StreamReader streamReader = new StreamReader("progres.dat");
                 string progres = streamReader.ReadToEnd();
+                progres = Encoding.UTF8.GetString(Convert.FromBase64String(progres));
                 streamReader.Close();
                 string[] progresLines = progres.Split('\n');
                 string[] results = progresLines[progresLines.Length - 1].Split(' ');
@@ -134,7 +136,7 @@ namespace EduMath.UserControls
                 {
                     newProgres += progresLines[i] + '\n';
                 }
-                File.WriteAllText("progres.txt", newProgres.Trim('\n'));
+                File.WriteAllText("progres.dat", Convert.ToBase64String(Encoding.UTF8.GetBytes(newProgres.Trim('\n'))));
                 TextBlockTest.Text = "Twój wynik to " + positiveAnswersPercentage + "%";
             }
         }

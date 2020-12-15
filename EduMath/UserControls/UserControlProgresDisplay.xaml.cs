@@ -27,8 +27,9 @@ namespace EduMath.UserControls
 
             try
             {
-                StreamReader streamReader = new StreamReader("progres.txt");
+                StreamReader streamReader = new StreamReader("progres.dat");
                 string all = streamReader.ReadToEnd();
+                all = Encoding.UTF8.GetString(Convert.FromBase64String(all));
                 string[] lines = all.Split('\n');
                 streamReader.Close();
 
