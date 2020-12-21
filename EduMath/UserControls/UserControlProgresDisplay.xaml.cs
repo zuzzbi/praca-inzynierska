@@ -41,8 +41,24 @@ namespace EduMath.UserControls
                         string[] results = line.Split(' ');
                         for (int j = 0; j < results.Length; j++)
                         {
+                            int result = Convert.ToInt32(results[j]);
                             TextBlock textBlock = new TextBlock();
+                            Color color;
+                            if (result < 50)
+                            {
+                                color = (Color)ColorConverter.ConvertFromString("#DC143C");
+                            }
+                            else if (result >= 50 && result < 100)
+                            {
+                                color = (Color)ColorConverter.ConvertFromString("#FDE456");
+                            }
+                            else
+                            {
+                                color = (Color)ColorConverter.ConvertFromString("#BCE27F");
+                            }
+                            SolidColorBrush brush = new SolidColorBrush(color);
                             textBlock.Text = results[j] + "%";
+                            textBlock.Foreground = brush;
                             ItemsControl3.Items.Add(textBlock);
                         }
                     }
@@ -59,7 +75,22 @@ namespace EduMath.UserControls
                         int percentage = (completedTasks * 100) / line.Trim('\n').Trim('\r').Length;
 
                         TextBlock textBlock = new TextBlock();
+                        Color color;
+                        if (percentage < 50)
+                        {
+                            color = (Color)ColorConverter.ConvertFromString("#DC143C");
+                        }
+                        else if (percentage >= 50 && percentage < 100)
+                        {
+                            color = (Color)ColorConverter.ConvertFromString("#FDE456");
+                        }
+                        else
+                        {
+                            color = (Color)ColorConverter.ConvertFromString("#BCE27F");
+                        }
+                        SolidColorBrush brush = new SolidColorBrush(color);
                         textBlock.Text = percentage + "%";
+                        textBlock.Foreground = brush;
                         ItemsControl2.Items.Add(textBlock);
                     }
                 }

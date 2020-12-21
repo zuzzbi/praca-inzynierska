@@ -85,7 +85,7 @@ namespace EduMath.UserControls
             try
             {
                 //Usuń pliki pomocnicze
-                if (answerLines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1][questionNumber] == currentAnswer)
+                if (answerLines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1][questionNumber - 1] == currentAnswer)
                 {
                     positiveAnswersNumber++;
                 }
