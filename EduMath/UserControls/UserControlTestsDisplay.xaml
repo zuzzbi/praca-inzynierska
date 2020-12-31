@@ -57,6 +57,7 @@
 
     <Grid x:Name="Grid">
         <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
             <RowDefinition/>
             <RowDefinition Height="0.07*"/>
             <RowDefinition Height="60"/>
@@ -68,9 +69,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="TextBlockTest" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Visibility="Hidden" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="Transparent" FontSize="40"/>
-
-        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Transparent" VerticalPageSpacing="0">
+        <StackPanel x:Name="StackPnael" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="4" Visibility="Hidden">
+            <TextBlock x:Name="TextBlockTest1" Height="40" Visibility="Visible" TextAlignment="Center" HorizontalAlignment="Stretch" Background="Transparent" FontSize="25" Foreground="#FF3884C0" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlockTest2" Height="40" Visibility="Visible" TextAlignment="Center" HorizontalAlignment="Stretch" Background="Transparent" FontSize="20" Foreground="#FF3884C0"/>
+            <TextBlock x:Name="TextBlockTest3" Height="40" Visibility="Visible" TextAlignment="Center" HorizontalAlignment="Stretch" Background="Transparent" FontSize="20" Foreground="#DC143C"/>
+        </StackPanel>
+        
+        <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Transparent" VerticalPageSpacing="0">
             <DocumentViewer.Resources>
                 <Style TargetType="ContentControl">
                     <Setter Property="Visibility" Value="Collapsed" />
@@ -81,22 +86,22 @@
             </DocumentViewer.Resources>
         </DocumentViewer>
 
-        <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1">
+        <Viewbox Grid.Row="2" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1">
             <RadioButton x:Name="A" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">A</RadioButton>
         </Viewbox>
-        <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1">
+        <Viewbox Grid.Row="2" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1">
             <RadioButton x:Name="B" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">B</RadioButton>
         </Viewbox>
-        <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1">
+        <Viewbox Grid.Row="2" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1">
             <RadioButton x:Name="C" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">C</RadioButton>
         </Viewbox>
-        <Viewbox Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="1">
+        <Viewbox Grid.Row="2" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="1">
             <RadioButton x:Name="D" GroupName="Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="RadioButton_Checked">D</RadioButton>
         </Viewbox>
 
-        <Button x:Name="ButtonScale" Content="Dopasuj do okna" Margin="0,0,86,0.6" Click="ButtonScale_Click" Width="150" Height="24" Grid.Row="2" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle2}" VerticalAlignment="Bottom"/>
-        <Button x:Name="ButtonReturn" Content="Powrót" Margin="0,0,1,0.6" Click="ButtonReturn_Click" Width="81" Height="24" Grid.Row="2" Grid.RowSpan="1" Grid.Column="3" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom"/>
-        <Button x:Name="ButtonSubmit" Content="Następne pytanie" FontSize="25" Margin="4,5.8,0.8,0.6" Click="ButtonSubmit_Click" Grid.Row="2" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2" IsEnabled="False" Style="{StaticResource ButtonStyle2}"/>
+        <Button x:Name="ButtonScale" Content="Dopasuj do okna" Margin="0,0,86,0.6" Click="ButtonScale_Click" Width="150" Height="24" Grid.Row="3" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle2}" VerticalAlignment="Bottom"/>
+        <Button x:Name="ButtonReturn" Content="Powrót" Margin="0,0,1,0.6" Click="ButtonReturn_Click" Width="81" Height="24" Grid.Row="3" Grid.RowSpan="1" Grid.Column="3" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom"/>
+        <Button x:Name="ButtonSubmit" Content="Następne pytanie" FontSize="25" Margin="4,5.8,0.8,0.6" Click="ButtonSubmit_Click" Grid.Row="3" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2" IsEnabled="False" Style="{StaticResource ButtonStyle2}"/>
 
     </Grid>
 </UserControl>

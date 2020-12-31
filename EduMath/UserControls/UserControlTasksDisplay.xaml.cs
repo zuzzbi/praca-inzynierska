@@ -40,5 +40,15 @@ namespace EduMath.UserControls
         {
             DocumentViewer.FitToWidth();
         }
+
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRowSpan(DocumentViewer, 1);
+        }
+
+        private void Expander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            Grid.SetRowSpan(DocumentViewer, 2);
+        }
     }
 }

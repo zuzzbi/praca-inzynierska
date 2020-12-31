@@ -25,6 +25,8 @@ namespace EduMath.UserControls
     {
         int questionNumber = 0;
         int positiveAnswersNumber = 0;
+        string falseAnswers = "";
+        string allAnswers = "";
         string[] answerLines;
         char currentAnswer;
 
@@ -84,11 +86,20 @@ namespace EduMath.UserControls
             D.IsChecked = false;
             try
             {
-                //Usuń pliki pomocnicze
+                //Zbierz informację o numerze pytania i udzielonej odpowiedzi
+                allAnswers += questionNumber + "-" + currentAnswer + ", ";
+
+                //Jeśli podana odpowiedź zgadza się z kluczem, zwiększ licznik poprawnych odpowiedzi
                 if (answerLines[(Application.Current.MainWindow as MainWindow).sectionNumber - 1][questionNumber - 1] == currentAnswer)
                 {
                     positiveAnswersNumber++;
                 }
+                //Jeśli odpoiwedź się nie zgadza, zbierz informację o numerze pytania i udzielonej odpowiedzi
+                else
+                {
+                    falseAnswers += questionNumber + "-"+ currentAnswer + ", ";
+                }
+                //Usuń pliki pomocnicze
                 File.Delete("z.xps");
 
                 //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
@@ -111,13 +122,26 @@ namespace EduMath.UserControls
             }
             catch (Exception)
             {
-                DocumentViewer.Visibility = Visibility.Hidden;
+                File.Delete("z.xps");
+
+                //Utwórz ścieżkę path do pliku .xps na podstawie numeru w nazwie wybranego obiektu ListBoxItem z ListBoxTaskListing
+                string path = (new FileInfo(AppDomain.CurrentDomain.BaseDirectory)).Directory.Parent.Parent.FullName;
+                path = path + @"\Tests\Test" + (Application.Current.MainWindow as MainWindow).sectionNumber + ".xps";
+
+                //Wczytaj dokument xpsDocument na podstawie uzyskanej ściezki path
+                XpsDocument xpsDocument = new XpsDocument(path, FileAccess.Read);
+                Grid.SetRow(DocumentViewer, 1);
+                Grid.SetRowSpan(DocumentViewer, 3);
+                DocumentViewer.Margin = new Thickness(0, 0, 0, 25.2);
+                DocumentViewer.Document = xpsDocument.GetFixedDocumentSequence();
+
+                //DocumentViewer.Visibility = Visibility.Hidden;
                 foreach (Viewbox item in Grid.Children.OfType<Viewbox>())
                 {
                     item.Visibility = Visibility.Hidden;
                 }
                 ButtonSubmit.Visibility = Visibility.Hidden;
-                TextBlockTest.Visibility = Visibility.Visible;
+                StackPnael.Visibility = Visibility.Visible;
                 int positiveAnswersPercentage = (positiveAnswersNumber * 100) / questionNumber;
 
                 StreamReader streamReader = new StreamReader("progres.dat");
@@ -137,7 +161,12 @@ namespace EduMath.UserControls
                     newProgres += progresLines[i] + '\n';
                 }
                 File.WriteAllText("progres.dat", Convert.ToBase64String(Encoding.UTF8.GetBytes(newProgres.Trim('\n'))));
-                TextBlockTest.Text = "Twój wynik to " + positiveAnswersPercentage + "%";
+                TextBlockTest1.Text = "Twój wynik to " + positiveAnswersPercentage + "%";
+                TextBlockTest2.Text = "Twoje odpowiedzi: " + allAnswers.TrimEnd(' ').TrimEnd(',');
+                if (falseAnswers != "")
+                {
+                    TextBlockTest3.Text += "Nieprawidłowe odpowiedzi: " + falseAnswers.TrimEnd(' ').TrimEnd(',');
+                }
             }
         }
 

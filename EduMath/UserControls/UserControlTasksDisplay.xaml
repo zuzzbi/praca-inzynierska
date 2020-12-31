@@ -57,7 +57,7 @@
     <Grid x:Name="Grid">
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         
@@ -72,15 +72,15 @@
             </DocumentViewer.Resources>
         </DocumentViewer>
 
-        <Expander x:Name="Expander" Header="Pokaż odpowiedź" IsExpanded="False" ExpandDirection="Up" FontSize="14" FontFamily="Arial"  Grid.RowSpan="1" Grid.Row="1">
+        <Expander x:Name="Expander" Header="Pokaż odpowiedź" IsExpanded="False" ExpandDirection="Up" FontSize="14" FontFamily="Arial"  Grid.RowSpan="1" Grid.Row="1" Expanded="Expander_Expanded" Collapsed="Expander_Collapsed">
             <Grid x:Name="GridExpander">
                 <DocumentViewer Name="DocumentViewerExpander" Background="White" ShowPageBorders="False" BorderBrush="Transparent">
                     <DocumentViewer.Resources>
                         <Style TargetType="ContentControl">
-                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Visibility" Value="Collapsed" />
                         </Style>
                         <Style TargetType="ToolBar">
-                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Visibility" Value="Collapsed" />
                         </Style>
                     </DocumentViewer.Resources>
                 </DocumentViewer>

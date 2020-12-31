@@ -8,7 +8,7 @@
     <Grid>
         <ListBox x:Name="ListBoxTheoryListing" Background="Transparent" BorderBrush="Transparent" Margin="5,5,5,5" FontSize="28" FontFamily="Arial" SelectionChanged="ListBoxTheoryListing_SelectionChanged">
             <ListBoxItem x:Name="ListBoxItemTheory1" Content="Pojęcia podstawowe"/>
-            <ListBoxItem x:Name="ListBoxItemTheory2" Content="Równania i nierówności"/>
+            <ListBoxItem x:Name="ListBoxItemTheory2" Content="Zbiory liczbowe"/>
             <ListBoxItem x:Name="ListBoxItemTheory3" Content="Wyrażenia algebraiczne"/>
             <ListBoxItem x:Name="ListBoxItemTheory4" Content="Geometria - własności figur"/>
             <ListBoxItem x:Name="ListBoxItemTheory5" Content="Trygonometria"/>
