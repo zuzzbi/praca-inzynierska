@@ -55,22 +55,13 @@
     </UserControl.Resources>
 
     <Grid x:Name="Grid">
-        <!--<StackPanel x:Name="StackPanel">
-            <TextBox x:Name="TextBox1" x:FieldModifier="public" IsEnabled="False" Background="Transparent" BorderBrush="Transparent"/>
-            <Image x:Name="Image1" x:FieldModifier="public" IsEnabled="False" VerticalAlignment="Center" Width="100" Height="40"/>
-        </StackPanel>-->
-        <!--<TextBox x:Name="TextBox1" x:FieldModifier="public" Background="Transparent" BorderBrush="Transparent" IsEnabled="False"/>-->
-        <!--<Image x:Name="Image1" x:FieldModifier="public"/>-->
-        <Grid.RowDefinitions>
+          <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <DocumentViewer Name="DocumentViewer" Background="Transparent" ShowPageBorders="False" Grid.RowSpan="2" >
             <DocumentViewer.Resources>
                 <Style TargetType="ContentControl">
-                    <!--<Setter Property="Visibility" Value="Collapsed" />-->
-                    <!--<Setter Property="Width" Value="325"/>
-                    <Setter Property="HorizontalAlignment" Value="Right"/>-->
                 </Style>
                 <Style TargetType="ToolBar">
                     <Setter Property="Visibility" Value="Collapsed" />
